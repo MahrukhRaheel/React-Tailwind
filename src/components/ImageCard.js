@@ -1,39 +1,40 @@
 import React from 'react'
 
 const ImageCard = ({ image }) => {
-    const tags = image.tags.split(',');
-  
-    return (
-      <div className="max-w-sm rounded overflow-hidden shadow-lg">
-        <img src={image.webformatURL} alt="" className="w-40 h-40"/>
-        <div className="px-6 py-4">
-          <div className="font-bold text-purple-500 text-xl mb-2">
-            Photo by {image.user}
-          </div>
-          <ul>
-            <li>
-              <strong>Views: </strong>
-              {image.views}
-            </li>
-            <li>
-              <strong>Downloads: </strong>
-              {image.downloads}
-            </li>
-            <li>
-              <strong>Likes: </strong>
-              {image.likes}
-            </li>
-          </ul>
+  const tags = image.tags.split(',');
+
+  return (
+    <div className="flex-container max-w-sm rounded overflow-hidden shadow-lg flex-col items-center">
+      <div className="px-6 py-4">
+        <img src={image.webformatURL} alt="" className="w-50 h-50 mb-4" />
+        <div className="font-bold text-purple-500 text-xl mb-2">
+          Photo by {image.user}
         </div>
-        <div className="px-6 py-4">
-          {tags.map((tag, index) => (
-            <span key={index} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
+        <ul>
+          <li>
+            <strong>Views: </strong>
+            {image.views}
+          </li>
+          <li>
+            <strong>Downloads: </strong>
+            {image.downloads}
+          </li>
+          <li>
+            <strong>Likes: </strong>
+            {image.likes}
+          </li>
+        </ul>
+      </div>
+      <div className="px-6 py-4">
+        {tags.map((tag, index) => (
+          <span key={index} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
             #{tag}
           </span>
-          ))}
-        </div>
+        ))}
       </div>
-    )
-  }
+    </div>
+  );
+};
 
-export default ImageCard
+export default ImageCard;
+
